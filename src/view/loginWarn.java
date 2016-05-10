@@ -9,12 +9,12 @@ import javafx.stage.Stage;
 /**
  * Created by Shahidul Islam on 5/8/2016.
  */
-public class Warn {
+public class loginWarn {
     private Label warn;
     private Stage stage;
     private Scene scene;
 
-    public Warn(){
+    public loginWarn(){
 
         stage = new Stage();
 

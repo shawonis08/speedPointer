@@ -3,6 +3,7 @@ package view;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,6 +15,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import model.CustomButton;
 import model.Header;
 import model.OnlinePlayer;
 import service.DataBaseService;
@@ -31,6 +33,7 @@ public class Score {
     private Scene scene;
     private VBox root;
     private DataBaseService dataBaseService;
+    private CustomButton backButton;
 
 
     public Score(){
@@ -66,8 +69,15 @@ public class Score {
 
         table.getColumns().addAll(nameColumn,scoreColumn);
 
+        backButton = new CustomButton(3,140,"Back",18);
+        backButton.setOnAction(e->{
+            ((Node)(e.getSource())).getScene().getWindow().hide();
+            new GameMenu();
+        });
 
-		VBox vBox = new VBox(5);
+
+
+        VBox vBox = new VBox(5);
 		/*Box.setPadding(new Insets(100));*/
         vBox.setLayoutY(300);
         vBox.setLayoutX(130);
@@ -77,7 +87,7 @@ public class Score {
 
 
 
-        Group root = new Group(header.head(),label,vBox,rectangle);
+        Group root = new Group(header.head(),label,vBox,backButton,rectangle);
         scene = new Scene(root,500,600);
         stage.setScene(scene);
         stage.show();

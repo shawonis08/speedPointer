@@ -28,6 +28,7 @@ public class Login {
     private  CustomButton login,register;
     private  Stage stage;
     private Scene scene;
+    private CustomButton backButton;
 
     private static String logeduser;
     public Login(int a){
@@ -68,8 +69,7 @@ public class Login {
             if(check()==false || login() == false){
                 ((Node)(e.getSource())).getScene().getWindow().hide();
                 new Login();
-                new Warn();
-
+                new loginWarn();
             }
             if(check()==true && login()==true) {
                 ((Node)(e.getSource())).getScene().getWindow().hide();
@@ -89,6 +89,12 @@ public class Login {
             new Register();
         });
 
+        backButton = new CustomButton(3,140,"Back",18);
+        backButton.setOnAction(e->{
+            ((Node)(e.getSource())).getScene().getWindow().hide();
+            new MainMenuCopy();
+        });
+
 
         /*footer*/
         rectangle = new Rectangle(0,560,500,40);
@@ -96,7 +102,7 @@ public class Login {
 
 
 
-        Group root = new Group(header.head(),username,userfield,password,passwordField,login,msg,register,warn,rectangle);
+        Group root = new Group(header.head(),username,userfield,password,passwordField,login,msg,register,warn,backButton,rectangle);
         scene = new Scene(root,500,600);
         stage.setScene(scene);
         stage.show();

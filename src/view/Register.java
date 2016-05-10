@@ -28,6 +28,7 @@ public class Register {
     private  Stage stage;
     private Scene scene;
     private DataBaseService dataBaseService;
+    private CustomButton backButton;
 
     public Register(){
 
@@ -65,11 +66,17 @@ public class Register {
             new Login();
         });
 
+        backButton = new CustomButton(3,140,"Back",18);
+        backButton.setOnAction(e->{
+            ((Node)(e.getSource())).getScene().getWindow().hide();
+            new Login();
+        });
+
         /*Footer*/
         rectangle = new Rectangle(0,560,500,40);
         rectangle.setFill(Paint.valueOf("#a0e71e"));
 
-        Group root = new Group(header.head(),username,userfield,email,emailfield,password,passwordField,register,rectangle);
+        Group root = new Group(header.head(),username,userfield,email,emailfield,password,passwordField,register,backButton,rectangle);
         scene = new Scene(root,500,600);
         stage.setScene(scene);
         stage.show();

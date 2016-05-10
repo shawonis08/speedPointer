@@ -1,6 +1,7 @@
 package view;
 
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Paint;
@@ -8,6 +9,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.CustomButton;
 import model.Header;
 
 /**
@@ -22,6 +24,7 @@ public class HowToPlay{
     private Text text;
     private Stage stage;
     private Scene scene;
+    private CustomButton backButton;
 
     public HowToPlay(){
 
@@ -43,7 +46,14 @@ public class HowToPlay{
         text.setLayoutY(300);*/
         text.setFont(Font.font("Times New Roman",22));
 
-        Group root = new Group(header.head(),label,text,rectangle);
+        backButton = new CustomButton(3,140,"Back",18);
+        backButton.setOnAction(e->{
+            ((Node)(e.getSource())).getScene().getWindow().hide();
+            new MainMenuCopy();
+        });
+
+
+        Group root = new Group(header.head(),label,text,backButton,rectangle);
         scene = new Scene(root,500,600);
         stage.setScene(scene);
         stage.show();

@@ -30,7 +30,7 @@ public class Header {
         text = new Text(81,104,"SpeedPointer");
         text.setFont(Font.font("Halo3",40));
 
-        quit = new CustomButton(420,140,"QUIT",15);
+        quit = new CustomButton(420,140,"QUIT",16);
         quit.setOnAction(e->{
             System.exit(0);
         });

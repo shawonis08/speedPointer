@@ -27,6 +27,7 @@ public class GameLevel {
     private Line line1,line2;
     private CustomButton easy,medium,hard;
     private Scene scene;
+    private CustomButton backButton;
 
     public GameLevel(){
 
@@ -67,13 +68,19 @@ public class GameLevel {
             new Level3();
         });*/
 
+        backButton = new CustomButton(3,140,"Back",18);
+        backButton.setOnAction(e->{
+            ((Node)(e.getSource())).getScene().getWindow().hide();
+            new GameMenu();
+        });
+
         /*footer rectangle3*/
         line2 = new Line(0, 520, 500, 520);
 
         rectangle = new Rectangle(0, 521, 500, 80);
         rectangle.setFill(Paint.valueOf("#a0e71e"));
 
-        Group root = new Group(header.head(), easy, medium, hard, line2, rectangle);
+        Group root = new Group(header.head(), easy, medium, hard, line2, backButton,rectangle);
         scene = new Scene(root,500,600);
         stage.setScene(scene);
         stage.show();
