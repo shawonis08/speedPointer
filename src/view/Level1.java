@@ -12,6 +12,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.Bar;
 import model.CustomButton;
@@ -44,8 +45,6 @@ public class Level1 {
     private String logedplyer;
 
 
-
-
     public void setScore() {
         this.score = ++score;
     }
@@ -66,29 +65,27 @@ public class Level1 {
 
         ball = new Circle(250, 520, 10);
 
-
         barL1 = new Bar(100, 10, ball, scene, 2);
         barL1.setLayoutX(150);
         barL1.setLayoutY(180);
 
 
-
-
         barR1 = new Bar(100, 10, ball, scene, 2);
         barR1.setLayoutX(250);
-        barR1.setLayoutY(280);
+        barR1.setLayoutY(250);
 
         barL2 = new Bar(100, 10, ball, scene, 2);
         barL2.setLayoutX(150);
-        barL2.setLayoutY(380);
+        barL2.setLayoutY(320);
 
-        /*barR2 = new Bar(100, 10, ball, scene,2);
+        barR2 = new Bar(100, 10, ball, scene,2);
         barR2.setLayoutX(250);
-        barR2.setLayoutY(480);*/
+        barR2.setLayoutY(390);
 
         scoreshow = new Label("SCORE : 0");
-        scoreshow.setLayoutY(10);
-        scoreshow.setLayoutX(10);
+        scoreshow.setFont(Font.font("TIMES NEW ROMAN",18));
+        scoreshow.setLayoutY(570);
+        scoreshow.setLayoutX(240);
 
         /*Footer*/
         rectangle = new Rectangle(0, 560, 500, 40);
@@ -114,8 +111,8 @@ public class Level1 {
         });
 
 
-        game.getChildren().addAll(mainline, ball, barL1, barR1, barL2,backButton,gameoverGroup);
-        root = new Group(header.head(),scoreshow, game, rectangle);
+        game.getChildren().addAll(mainline, ball, barL1, barR1,barR2, barL2,backButton,gameoverGroup);
+        root = new Group(header.head(), game, rectangle,scoreshow);
         scene = new Scene(root, 500, 600);
 
 

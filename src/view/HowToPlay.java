@@ -49,7 +49,7 @@ public class HowToPlay{
         backButton = new CustomButton(3,140,"Back",18);
         backButton.setOnAction(e->{
             ((Node)(e.getSource())).getScene().getWindow().hide();
-            new MainMenuCopy();
+            new GameMenu();
         });
 
 
