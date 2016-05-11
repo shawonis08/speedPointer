@@ -56,7 +56,7 @@ public class GameLevel {
 
         medium.setOnAction(e->{
             ((Node) (e.getSource())).getScene().getWindow().hide();
-            /*new Level2();*/
+            new Level2();
         });
 
         hard = new CustomButton(150, 425, "Hard", 26);

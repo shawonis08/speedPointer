@@ -77,7 +77,7 @@ public class MainMenu extends Application{
 
             playoffline.setOnAction(e -> {
                 ((Node) (e.getSource())).getScene().getWindow().hide();
-               new GameMenu();
+               new GameMenuOffline();
             });
 
         }

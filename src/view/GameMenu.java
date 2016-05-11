@@ -67,6 +67,7 @@ public class GameMenu {
         });
 
 
+
         /*Footer*/
         rectangle = new Rectangle(0,560,500,40);
         rectangle.setFill(Paint.valueOf("#a0e71e"));

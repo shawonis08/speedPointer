@@ -1,6 +1,7 @@
 package view;
 
 import javafx.application.Platform;
+import javafx.css.CssMetaData;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import model.Bar;
+import model.CustomButton;
 import model.Header;
 import service.DataBaseService;
 
@@ -36,6 +38,7 @@ public class Level1 {
     private static int score = 0;
     private static Label scoreshow;
     private Label gameLabel,scoreLAbel;
+    private CustomButton backButton;
 
 
     private String logedplyer;
@@ -51,11 +54,6 @@ public class Level1 {
 
 
     public Level1() {
-
-
-
-
-
 
 
         stage = new Stage();
@@ -108,7 +106,15 @@ public class Level1 {
 
         gameoverGroup.getChildren().addAll(gameLabel,scoreLAbel);
 
-        game.getChildren().addAll(mainline, ball, barL1, barR1, barL2,gameoverGroup);
+
+        backButton = new CustomButton(3,140,"Back",18);
+        backButton.setOnAction(e->{
+            ((Node)(e.getSource())).getScene().getWindow().hide();
+            new GameMenu();
+        });
+
+
+        game.getChildren().addAll(mainline, ball, barL1, barR1, barL2,backButton,gameoverGroup);
         root = new Group(header.head(),scoreshow, game, rectangle);
         scene = new Scene(root, 500, 600);
 

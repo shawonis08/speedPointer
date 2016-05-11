@@ -60,7 +60,7 @@ public class MainMenuCopy {
 
         playoffline.setOnAction(e -> {
             ((Node) (e.getSource())).getScene().getWindow().hide();
-            new GameMenu();
+            new GameMenuOffline();
         });
 
         /*footer rectangle3*/
