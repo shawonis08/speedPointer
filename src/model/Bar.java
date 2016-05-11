@@ -9,6 +9,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import view.GameOver;
 import view.Level1;
+import view.Level2;
 
 public class Bar extends Rectangle implements Runnable{
 
@@ -22,6 +23,7 @@ public class Bar extends Rectangle implements Runnable{
     private Bar barR;
     private static boolean stop = false;
     Level1 level1 = new Level1(1);
+    Level2 level2 = new Level2(1) ;
 
 
 
@@ -54,10 +56,11 @@ public class Bar extends Rectangle implements Runnable{
                     if(!(ball.getBoundsInParent().intersects(this.getBoundsInParent()))){
                         if (this.getLayoutY() > 600) {
                             level1.gameplayinfo();
-                            //level1.getScoreshow().setText(String.valueOf(score++));
 
+                            //level1.getScoreshow().setText(String.valueOf(score++));
                             this.setLayoutY(200);
                         }
+
                     }
                     else {
 
@@ -67,10 +70,7 @@ public class Bar extends Rectangle implements Runnable{
                         level1.gameOver();
                         new GameOver();
 
-
-
                     }
-
                     });
                 try {
                     thisThread.sleep(20);
