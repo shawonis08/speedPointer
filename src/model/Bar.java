@@ -27,7 +27,7 @@ public class Bar extends Rectangle implements Runnable{
 
 
 
-    public Bar (double x, double y, Circle ball, Scene scene, int s){
+    public Bar (double x, double y, Circle ball, Scene scene, double s){
         super(x,y,Color.web("#000"));
         this.scene = scene;
         this.x = x;
@@ -56,11 +56,9 @@ public class Bar extends Rectangle implements Runnable{
                     if(!(ball.getBoundsInParent().intersects(this.getBoundsInParent()))){
                         if (this.getLayoutY() > 600) {
                             level1.gameplayinfo();
-
                             //level1.getScoreshow().setText(String.valueOf(score++));
                             this.setLayoutY(200);
                         }
-
                     }
                     else {
 

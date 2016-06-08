@@ -168,8 +168,5 @@ public class Level1 {
         dataBaseService.updatescore(login.getLogeduser(),score);
         //login.getLogeduser()
 
-
-
-
     }
 }
